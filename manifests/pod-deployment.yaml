@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: escalator-shell
+  namespace: dev-ops
+spec:
+  serviceAccountName: escalator
+  containers:
+  - name: shell
+    image: amazonlinux
+    command: ["sleep", "3600"]

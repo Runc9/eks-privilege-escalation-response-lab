@@ -1,0 +1,18 @@
+{
+  "Name": "Detect-Kubernetes-Privilege-Escalation",
+  "EventPattern": {
+    "source": ["aws.eks"],
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": ["eks.amazonaws.com"],
+      "eventName": ["CreateClusterRoleBinding", "UpdateClusterRoleBinding"]
+    }
+  },
+  "State": "ENABLED",
+  "Targets": [
+    {
+      "Arn": "arn:aws:lambda:YOUR-REGION:YOUR-ACCOUNT-ID:function:YOUR-LAMBDA-NAME",
+      "Id": "KubernetesRBACPrivilegeEscalationTarget"
+    }
+  ]
+}
